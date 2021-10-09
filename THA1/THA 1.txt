@@ -1,0 +1,131 @@
+$ redis-cli
+127.0.0.1:6379> SET name taha
+OK
+127.0.0.1:6379> GET name
+"taha"
+127.0.0.1:6379> SET age 20
+OK
+127.0.0.1:6379> GET age
+"20"
+127.0.0.1:6379> DEL age
+(integer) 1
+127.0.0.1:6379> EXISTS name
+(integer) 1
+127.0.0.1:6379> EXIST age
+(error) ERR unknown command `EXIST`, with args beginning with: `age`,
+127.0.0.1:6379> EXISTS age
+(integer) 0
+127.0.0.1:6379> KEYS *
+1) "name"
+127.0.0.1:6379> SET age 20
+OK
+127.0.0.1:6379> KEYS *
+1) "name"
+2) "age"
+127.0.0.1:6379> FLUSHALL
+OK
+127.0.0.1:6379> KEYS *
+(empty list or set)
+127.0.0.1:6379> SET name taha
+OK
+127.0.0.1:6379> ttl name
+(integer) -1
+127.0.0.1:6379> expire name 10
+(integer) 1
+127.0.0.1:6379> ttl name
+(integer) 6
+127.0.0.1:6379> ttl name
+(integer) 5
+127.0.0.1:6379> ttl name
+(integer) 4
+127.0.0.1:6379> ttl name
+(integer) 3
+127.0.0.1:6379> ttl name
+(integer) 3
+127.0.0.1:6379> ttl name
+(integer) 2
+127.0.0.1:6379> ttl name
+(integer) 1
+127.0.0.1:6379> ttl name
+(integer) 0
+127.0.0.1:6379> ttl name
+(integer) -2
+127.0.0.1:6379> KEYS *
+(empty list or set)
+127.0.0.1:6379> setex name 10 taha
+OK
+127.0.0.1:6379> ttl name
+(integer) 6
+127.0.0.1:6379> ttl name
+(integer) 2
+127.0.0.1:6379> ttl name
+(integer) -2
+127.0.0.1:6379> lpush friends john
+(integer) 1
+127.0.0.1:6379> GET friends
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> LRANGE freinds 0 - 1
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> LRANGE friends 0 - 1
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> LRANGE friends 0 -1
+1) "john"
+127.0.0.1:6379> rpush freinds Remo
+(integer) 1
+127.0.0.1:6379> LRANGE friends 0 -1
+1) "john"
+127.0.0.1:6379> rpush friends Remo
+(integer) 2
+127.0.0.1:6379> LRANGE friends 0 -1
+1) "john"
+2) "Remo"
+127.0.0.1:6379> lpush friends arun
+(integer) 3
+127.0.0.1:6379> LRANGE friends 0 -1
+1) "arun"
+2) "john"
+3) "Remo"
+127.0.0.1:6379> lpop freinds
+"Remo"
+127.0.0.1:6379> LRANGE freinds 0 -1
+(empty list or set)
+127.0.0.1:6379> lpop friends
+"arun"
+127.0.0.1:6379> LRANGE freinds 0 -1
+(empty list or set)
+127.0.0.1:6379> LRANGE friends 0 -1
+1) "john"
+2) "Remo"
+127.0.0.1:6379> SADD hobbies "swimming"
+(integer) 1
+127.0.0.1:6379> SADD hobbies "singing"
+(integer) 1
+127.0.0.1:6379> SADD hobbies "singing"
+(integer) 0
+127.0.0.1:6379> SMEMBERS hobbies
+1) "swimming"
+2) "singing"
+127.0.0.1:6379> HSET person name Taha
+(integer) 1
+127.0.0.1:6379> HGET person name
+"Taha"
+127.0.0.1:6379> HGETALL person
+1) "name"
+2) "Taha"
+127.0.0.1:6379> HSET person age 20
+(integer) 1
+127.0.0.1:6379> HGETALL person
+1) "name"
+2) "Taha"
+3) "age"
+4) "20"
+127.0.0.1:6379> HDEL person age
+(integer) 1
+127.0.0.1:6379> HGETALL person
+1) "name"
+2) "Taha"
+127.0.0.1:6379> HEXISTS person name
+(integer) 1
+127.0.0.1:6379> HEXISTS person age
+(integer) 0
+

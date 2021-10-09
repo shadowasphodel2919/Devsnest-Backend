@@ -1,0 +1,49 @@
+REPL method:
+Read Execute Print Loop
+$ node
+Welcome to Node.js v14.17.1.
+Type ".help" for more information.
+> var fs = require("fs");
+undefined
+> fs.mkdirSync('day_1');                             people", (err) => {
+undefined
+> fs.writeFIleSync("day_1/hello.txt", "Hello awesome people", (err) => {
+... if(err){
+..... console.log(err);                             on
+..... }                                              people", (err) => {   
+... });
+Uncaught TypeError: fs.writeFIleSync is not a function
+... });
+undefined
+> fs.appendFileSync("day_1/hello.txt"," appended");
+undefined
+> fs.readFileSync("day_1/hello.txt");
+<Buffer 48 65 6c 6c 6f 20 61 77 65 73 6f 6d 65 20 70 65 6f 70 6c 65 20 61 70 70 65 6e 64 65 64>
+> fs.readFileSync("day_1/hello.txt","utf-8");
+'Hello awesome people appended'
+> var data = fs.readFileSync("day_1/hello.txt","utf-8");
+undefined
+> console.log(data);
+Hello awesome people appended
+undefined
+> fs.renameSync("day_1/hello.txt","day_1/hello2.txt");
+undefined
+> fs.unlinkSync("day_1/hello2.txt");
+undefined
+> fs.rmdirSync("day_1");
+undefined
+> .exit
+
+==================
+
+node index.js
+
+
+==================
+
+
+$ node index.js 
+I am inside require_test
+undefined
+
+=================

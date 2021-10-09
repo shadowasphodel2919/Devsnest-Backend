@@ -1,0 +1,36 @@
+Protocols ->
+TCP/IP -> Transports Data
+HTTP/HTTPS -> Web Access
+RTP -> Live Vied and Streaming
+
+
+
+Api -> Application Programming Interface -> Set of programming codes that enables data transmission between one software product and another.
+->Private
+->Partner
+->Public
+
+Rest -> Representable State Transfer
+Set of rules to handle requests and responses.
+
+Some more examples of APIs to handle requests and responses
+Open APIs
+Internal APIs
+Partner APIs
+Composite APIs
+
+
+C->Create->POST
+R->Read->GET
+U->Update->PUT
+D->Delete->DELETE
+
+
+Request
+->Header
+->Param/Body
+->Operations->End Point
+
+Response
+->Header
+->JSON
