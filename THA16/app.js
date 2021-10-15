@@ -4,11 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const {redisClient,
-  RedisStore,
-  session} = require("./database/redis");
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
